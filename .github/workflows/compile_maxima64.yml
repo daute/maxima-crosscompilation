@@ -1,0 +1,28 @@
+name: compile_ubuntu
+
+on: [push]
+
+env:
+  BUILD_TYPE: Release
+
+permissions:
+  contents: read
+
+jobs:
+  compile_latest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: install_packages
+        run: |
+             dpkg --add-architecture i386
+             sudo apt-get update
+             sudo apt-get install g++-mingw-w64-x86-64 cmake nsis wine automake texlive texlive-plain-generic texlive-xetex rsync p7zip-full g++ gettext python3 tcl pandoc po4a wine:i386
+      - name: checkout maxima
+        run: |
+             git clone https://git.code.sf.net/p/maxima/code maxima-codeexport CXXFLAGS="-Wall -Wextra -ansi"
+      - name: compile
+        run: |
+             cd maxima-code/crosscompile-windows/build
+             cmake ..
+             make
