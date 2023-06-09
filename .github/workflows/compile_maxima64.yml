@@ -23,6 +23,8 @@ jobs:
              git clone https://git.code.sf.net/p/maxima/code maxima-code
       - name: compile
         run: |
+             mkdir maxima-code/crosscompile-windows/build
              cd maxima-code/crosscompile-windows/build
              cmake ..
              make
+             make package
