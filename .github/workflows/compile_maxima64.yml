@@ -1,4 +1,4 @@
-name: compile_ubuntu
+name: crosscompile_maxima
 
 on: [push]
 
@@ -18,15 +18,56 @@ jobs:
              sudo dpkg --add-architecture i386
              sudo apt-get update
              sudo apt-get install g++-mingw-w64-x86-64 cmake nsis wine wine64 automake texlive texlive-plain-generic texlive-xetex rsync p7zip-full g++ gettext python3 tcl pandoc po4a wine32 libgcc-s1:i386 libstdc++6:i386 bsdutils
+      - name: configure compiler
+        run: |
              sudo update-alternatives --set x86_64-w64-mingw32-gcc /usr/bin/x86_64-w64-mingw32-gcc-posix
              sudo update-alternatives --set x86_64-w64-mingw32-g++ /usr/bin/x86_64-w64-mingw32-g++-posix
       - name: checkout maxima
         run: |
              git clone https://git.code.sf.net/p/maxima/code maxima-code
-      - name: compile
+      - name: configure
         run: |
              mkdir maxima-code/crosscompile-windows/build
              cd maxima-code/crosscompile-windows/build
              cmake ..
-             script -qc /bin/bash -c "make"
+      - name: compile tcl
+        run: |
+             cd maxima-code/crosscompile-windows/build
+             cmake ..
+             make tcl
+      - name: compile tk
+        run: |
+             cd maxima-code/crosscompile-windows/build
+             make tk
+      - name: compile clisp
+        run: |
+             cd maxima-code/crosscompile-windows/build
+             make clisp
+      - name: compile sbcl
+        run: |
+             cd maxima-code/crosscompile-windows/build
+             make sbcl
+      - name: compile gnuplot
+        run: |
+             cd maxima-code/crosscompile-windows/build
+             make gnuplot
+      - name: compile vtk
+        run: |
+             cd maxima-code/crosscompile-windows/build
+             make vtk
+      - name: compile maxima
+        run: |
+             cd maxima-code/crosscompile-windows/build
+             script -qc /bin/bash -c "make maxima"
+      - name: compile wxWidgets
+        run: |
+             cd maxima-code/crosscompile-windows/build
+             make wxwidgets
+      - name: compile wxMaxima
+        run: |
+             cd maxima-code/crosscompile-windows/build
+             make wxmaxima
+      - name: create package
+        run: |
+             cd maxima-code/crosscompile-windows/build
              make package
