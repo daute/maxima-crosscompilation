@@ -17,7 +17,7 @@ jobs:
         run: |
              sudo dpkg --add-architecture i386
              sudo apt-get update
-             sudo apt-get install g++-mingw-w64-x86-64 cmake nsis wine automake texlive texlive-plain-generic texlive-xetex rsync p7zip-full g++ gettext python3 tcl pandoc po4a wine32:i386
+             sudo apt-get install g++-mingw-w64-x86-64 cmake nsis wine automake texlive texlive-plain-generic texlive-xetex rsync p7zip-full g++ gettext python3 tcl pandoc po4a wine32
       - name: checkout maxima
         run: |
              git clone https://git.code.sf.net/p/maxima/code maxima-codeexport CXXFLAGS="-Wall -Wextra -ansi"
