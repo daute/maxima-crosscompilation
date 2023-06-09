@@ -26,5 +26,5 @@ jobs:
              mkdir maxima-code/crosscompile-windows/build
              cd maxima-code/crosscompile-windows/build
              cmake ..
-             screen -m make
+             screen -m -d make
              make package
