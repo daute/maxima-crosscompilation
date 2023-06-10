@@ -1,4 +1,4 @@
-name: crosscompile_maxima
+name: crosscompile_maxima32
 
 on: [push]
 
