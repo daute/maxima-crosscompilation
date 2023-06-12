@@ -18,9 +18,9 @@ jobs:
              sudo apt-get update
              sudo apt-get -y upgrade
              sudo apt-get install g++-mingw-w64-x86-64 gcc-mingw-w64-x86-64 cmake nsis wine automake texlive texlive-plain-generic texlive-xetex rsync p7zip-full g++ gettext python3 tcl pandoc po4a bsdutils
-             dpkg --add-architecture i386
-             apt-get update
-             apt-get install wine32
+             sudo dpkg --add-architecture i386
+             sudo apt-get update
+             sudo apt-get install wine32
       - name: configure compiler
         run: |
              sudo update-alternatives --set x86_64-w64-mingw32-gcc /usr/bin/x86_64-w64-mingw32-gcc-posix
@@ -33,7 +33,7 @@ jobs:
              mkdir maxima-code/crosscompile-windows/build
              cd maxima-code/crosscompile-windows/build
              cmake ..
-      - name: compile tclgit@github.com:daute/maxima-crosscompilation.git
+      - name: compile tcl
         run: |
              cd maxima-code/crosscompile-windows/build
              cmake ..
