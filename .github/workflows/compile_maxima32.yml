@@ -17,7 +17,7 @@ jobs:
         run: |
              sudo dpkg --add-architecture i386
              sudo apt-get update
-             sudo apt-get install g++-mingw-w64-i386 cmake nsis wine wine64 automake texlive texlive-plain-generic texlive-xetex rsync p7zip-full g++ gettext python3 tcl pandoc po4a wine32 libgcc-s1:i386 libstdc++6:i386 bsdutils
+             sudo apt-get install g++-mingw-w64-i686 cmake nsis wine wine64 automake texlive texlive-plain-generic texlive-xetex rsync p7zip-full g++ gettext python3 tcl pandoc po4a wine32 libgcc-s1:i386 libstdc++6:i386 bsdutils
       - name: configure compiler
         run: |
              sudo update-alternatives --set i686-w64-mingw32-gcc /usr/bin/i686-w64-mingw32-gcc-posix
