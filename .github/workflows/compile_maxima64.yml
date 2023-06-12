@@ -45,7 +45,7 @@ jobs:
              make clisp
       - name: compile sbcl
         run: |
-             cd maxima-code/crosscompile-windows/buildgit@github.com:daute/maxima-crosscompilation.git
+             cd maxima-code/crosscompile-windows/build
              make sbcl
       - name: compile gnuplot
         run: |
