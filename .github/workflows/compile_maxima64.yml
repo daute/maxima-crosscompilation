@@ -24,7 +24,7 @@ jobs:
              sudo update-alternatives --set x86_64-w64-mingw32-g++ /usr/bin/x86_64-w64-mingw32-g++-posix
       - name: checkout maxima
         run: |
-             git clone https://git.code.sf.net/p/maxima/code maxima-code
+             git clone --depth 1 https://git.code.sf.net/p/maxima/code maxima-code
       - name: configure
         run: |
              mkdir maxima-code/crosscompile-windows/build
