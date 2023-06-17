@@ -30,6 +30,11 @@ jobs:
              mkdir maxima-code/crosscompile-windows/build
              cd maxima-code/crosscompile-windows/build
              cmake ..
+        # It is not required to build every software component with a seperate
+        # make XYZ
+        # command. A simple 'make' (or 'make package' to build the complete
+        # installer package) works too. The seperate make commands here
+        # are mostly for a better structured output on Github.
       - name: compile tcl
         run: |
              cd maxima-code/crosscompile-windows/build
@@ -71,6 +76,7 @@ jobs:
         run: |
              cd maxima-code/crosscompile-windows/build
              make wxmaxima
+        # After everything is compiled, build finally the NSIS installer.
       - name: create package
         run: |
              cd maxima-code/crosscompile-windows/build
