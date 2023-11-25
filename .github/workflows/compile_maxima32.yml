@@ -30,10 +30,10 @@ jobs:
              mkdir maxima-code/crosscompile-windows/build
              cd maxima-code/crosscompile-windows/build
              cmake -DBUILD_64BIT=NO ..
-        # It is not required to build every software component with a seperate
+        # It is not required to build every software component with a separate
         # make XYZ
         # command. A simple 'make' (or 'make package' to build the complete
-        # installer package) works too. The seperate make commands here
+        # installer package) works too. The separate make commands here
         # are mostly for a better structured output on Github.
       - name: build tcl
         run: |
