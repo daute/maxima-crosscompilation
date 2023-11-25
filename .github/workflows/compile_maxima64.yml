@@ -38,7 +38,6 @@ jobs:
       - name: build tcl
         run: |
              cd maxima-code/crosscompile-windows/build
-             cmake ..
              make tcl
       - name: build tk
         run: |
