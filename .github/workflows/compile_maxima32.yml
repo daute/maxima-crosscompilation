@@ -35,44 +35,44 @@ jobs:
         # command. A simple 'make' (or 'make package' to build the complete
         # installer package) works too. The seperate make commands here
         # are mostly for a better structured output on Github.
-      - name: compile tcl
+      - name: build tcl
         run: |
              cd maxima-code/crosscompile-windows/build
              cmake ..
              make tcl
-      - name: compile tk
+      - name: build tk
         run: |
              cd maxima-code/crosscompile-windows/build
              make tk
-      - name: compile clisp
+      - name: build clisp
         run: |
              cd maxima-code/crosscompile-windows/build
              make clisp
-      - name: compile sbcl
+      - name: build sbcl
         run: |
              cd maxima-code/crosscompile-windows/build
              make sbcl
-      - name: compile gnuplot
+      - name: build gnuplot
         run: |
              cd maxima-code/crosscompile-windows/build
              make gnuplot
-      - name: compile vtk
+      - name: build vtk
         run: |
              cd maxima-code/crosscompile-windows/build
              make vtk
-      - name: compile texinfo
+      - name: build texinfo
         run: |
              cd maxima-code/crosscompile-windows/build
              make texinfo
-      - name: compile maxima
+      - name: build maxima
         run: |
              cd maxima-code/crosscompile-windows/build
              script -qc /bin/bash -c "make maxima"
-      - name: compile wxWidgets
+      - name: build wxWidgets
         run: |
              cd maxima-code/crosscompile-windows/build
              make wxwidgets
-      - name: compile wxMaxima
+      - name: build wxMaxima
         run: |
              cd maxima-code/crosscompile-windows/build
              make wxmaxima
