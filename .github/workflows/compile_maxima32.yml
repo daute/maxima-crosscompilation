@@ -63,6 +63,7 @@ jobs:
         run: |
              cd maxima-code/crosscompile-windows/build
              make texinfo
+        # Building Maxima needs some sort of 'terminal access', therefore use the command 'script' to run this build step. 
       - name: build maxima
         run: |
              cd maxima-code/crosscompile-windows/build
