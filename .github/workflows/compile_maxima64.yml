@@ -19,11 +19,12 @@ jobs:
              sudo apt-get update
              sudo apt-get install g++-mingw-w64-x86-64 cmake nsis wine wine64 automake texlive texlive-plain-generic texlive-xetex rsync p7zip-full g++ gettext python3 tcl pandoc po4a wine32 libgcc-s1:i386 libstdc++6:i386 bsdutils curl
       - name: install wine from winehq
-              # already done: sudo dpkg --add-architecture i386
-              curl https://dl.winehq.org/wine-builds/Release.key | sudo apt-key add -
-              sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
-              sudo apt-get update
-              sudo apt-get install -y --install-recommends winehq-stable
+        run: |
+             # already done: sudo dpkg --add-architecture i386
+             curl https://dl.winehq.org/wine-builds/Release.key | sudo apt-key add -
+             sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
+             sudo apt-get update
+             sudo apt-get install -y --install-recommends winehq-stable
       - name: configure compiler
         run: |
              sudo update-alternatives --set x86_64-w64-mingw32-gcc /usr/bin/x86_64-w64-mingw32-gcc-posix
