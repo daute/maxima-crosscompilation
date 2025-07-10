@@ -17,7 +17,7 @@ jobs:
         run: |
              sudo dpkg --add-architecture i386
              sudo apt-get update
-             sudo apt-get install g++-mingw-w64-x86-64 cmake nsis automake texlive texlive-plain-generic texlive-xetex rsync p7zip-full g++ gettext python3 tcl pandoc po4a libgcc-s1:i386 libstdc++6:i386 bsdutils wget
+             sudo apt-get install g++-mingw-w64-x86-64 cmake nsis automake texlive texlive-plain-generic texlive-xetex rsync p7zip-full g++ gettext python3 tcl pandoc po4a libgcc-s1:i386 libstdc++6:i386 bsdutils wget mingw-w64-tools
       # compiling the Maxima installer with CCL64 requires a recent wine installation (from winehq)...
       # If you do not include CCL64 (omit -DWITH_CCL64=YES during the configure step), the wine
       # installation from the Ubuntu repository is good (see the 32 bit procedure)
